@@ -1,0 +1,15 @@
+def max(cardpoints,k):
+   n=len(cardpoints)
+   total=sum(cardpoints)
+   window=n-k
+   min_window=float('inf')
+   points=sum(cardpoints[:window])
+   for i in range(window,n):
+       points=points-cardpoints[i-window]+cardpoints[i]
+       min_window=min(min_window,points)
+    return total-min_window
+cardpoints=list(map(int,input().split()))
+k=int(input("enter the value of k:"))
+result=maxscore(cardpoints,k)
+print("maximun score:",result)
+   
